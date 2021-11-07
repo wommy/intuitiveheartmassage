@@ -4,31 +4,42 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
-	<link href="//unpkg.com/normalize.css@^8/normalize.css" rel="stylesheet" />
+	<!-- <link href="//unpkg.com/normalize.css@^8/normalize.css" rel="stylesheet" /> -->
 	<!-- <link rel="stylesheet" href="/style/reset.css"> -->
+	<link rel="stylesheet" href="https://unpkg.com/modern-css-reset/dist/reset.min.css" />
 	<link href="//unpkg.com/tailwindcss@^2/dist/components.min.css" rel="stylesheet" />
 	<link href="//unpkg.com/tailwindcss@^2/dist/utilities.min.css" rel="stylesheet" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<!-- <style> -->
+<!-- header { -->
+	<!-- background: url('/img/fluffly-clouds-sky.jpg') norepeat fixed center; -->
+<!-- } -->
+	<!-- </style> -->
 </head>
-<body>
-	<header>
-		<img src="" alt="">
-		<nav>
-			<a href="/about">about</a>
-			<a href="/services">services</a>
+<body class="container mx-auto">
+	<header class="bg-gray-400">
+		<img src="/img/logo/light-alpha.png" alt="logo light alpha-background">
+		<nav class="py-5 | flex justify-center gap-10">
+			{% for ea in ['about', 'services'] %}
+				<a class="px-10 py-4 | uppercase text-purple-500 font-bold no-underline bg-white rounded shadow | hover:bg-purple-200" href="/{{ ea }}">{{ ea }}</a>
+			{% endfor %}
 		</nav>
 	</header>
 	<main>
-		<section>
-			<a href="">
-				<img src="" alt="">
+		<section class="flex m-4 gap-8">
+			<a href="/services/inhome" class="flex-1">
+				<img src="/img/hand-yoga-healing.jpg" alt="hands yoga healing">
+			</a>
+			<a href="/services/studio" class="flex-1">
+				<img src="/img/hands-head.jpeg" alt="hands head">
 			</a>
 		</section>
-		<section>
-			<p>happiness, rejuevantion, and peace…</p>
-			<p>at last</p>
-			<p>you want… no, you know you need this…</p>
+		<section class="my-10 text-center">
+			<p class="text-3xl">happiness, rejuvenation, and peace…</p>
+			<p class="text-2xl">at last</p>
+			<p>you want… no, you know you <em>need</em> this…</p>
 		</section>
-		<section>
+		<section class="my-10 text-center">
 			<form action="" method="post">
 				<header>
 					<p>Fill out your details below with the service that you need, date and preferred hour and we’ll get back to you to book an appointment.</p>
@@ -36,17 +47,17 @@
 				<div class="row">
 					<div>
 						<label for="name">Your Name *</label>
-						<input type="text" name="name" id="name">
+						<input type="text" name="name" id="name" required>
 					</div>
 					<div>
 						<label for="phone">Your Phone *</label>
-						<input type="tel" name="phone" id="phone">
+						<input type="tel" name="phone" id="phone" required>
 					</div>
 				</div>
 				<div class="row">
 					<div>
 						<label for="email">Your Email *</label>
-						<input type="email" name="email" id="email">
+						<input type="email" name="email" id="email" required>
 					</div>
 				</div>
 				<div class="row">
@@ -76,14 +87,14 @@
 			</form>
 		</section>
 	</main>
-	<footer>
-		<div>
-			<span>fb</span>
-			<span>ig</span>
-			<span>yt</span>
-			<p>follow us</p>
-		</div>
+	<footer class="text-center">
 		<hr>
+		<div>
+			<span>follow us:</span>
+			<i class="fa fa-facebook-f"></i>
+			<i class="fa fa-instagram"></i>
+			<i class="fa fa-youtube-play"></i>
+		</div>
 		<div>
 			<a href="tel:2487100126">248-710-0126</a>
 			<span> | </span>
