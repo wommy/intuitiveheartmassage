@@ -1,0 +1,11 @@
+{
+  "name": "intuitive-heart-massage",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:wommy/intuitiveheartmassage.git",
+  "author": "wommy <tom@technomad.media>",
+  "license": "MIT",
+  "devDependencies": {
+    "@11ty/eleventy": "^1.0.0-beta.4"
+  }
+}
