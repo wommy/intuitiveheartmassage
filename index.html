@@ -39,6 +39,30 @@
   height: 100%;
   object-fit: cover;
 }
+
+.frame2 {
+  --n: 9;
+  --d: 16;
+  padding-bottom: calc(var(--n) / var(--d) * 50%);
+  position: relative;
+}
+.frame2 > * {
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.frame2 > img,
+.frame2 > video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 	</style>
 </head>
 <body class="container mx-auto">
@@ -54,12 +78,14 @@
 		</div>
 	</header>
 	<main>
-		<section class="flex m-4 gap-8">
-			<a href="/services/inhome" class="flex-1">
+		<section class="flex gap-5 max-w-screen-lg mx-auto py-24">
+			<a href="/services/inhome" class="flex-1 frame2">
 				<img src="/img/hand-yoga-healing.jpg" alt="hands yoga healing">
+				<span class="text-white no-underline text-5xl">In-Home Service</span>
 			</a>
-			<a href="/services/studio" class="flex-1">
+			<a href="/services/studio" class="flex-1 frame2">
 				<img src="/img/hands-head.jpeg" alt="hands head">
+				<span class="text-white no-underline text-5xl">Studio Service</span>
 			</a>
 		</section>
 		<section class="my-10 text-center">
@@ -71,6 +97,7 @@
 			<form action="" method="post">
 				<header>
 					<p>Fill out your details below with the service that you need, date and preferred hour and we’ll get back to you to book an appointment.</p>
+					<p>rewrite this dani</p>
 				</header>
 				<div class="row">
 					<div>
