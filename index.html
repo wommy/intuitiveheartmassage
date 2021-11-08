@@ -44,15 +44,13 @@
 <body class="container mx-auto">
 	<header class="bg-black full-bleed w-screen h-screen frame backdrop-filter backdrop-opacity-80">
 		<img src="/img/clouds.jpg" alt="clouds">
-		<div class="full-bleed bg-gray-800 bg-opacity-50">
-			<div class="max-w-screen-md mx-auto">
-				<img src="/img/logo/light-alpha.png" alt="logo light alpha-background">
-				<nav class="py-5 | flex justify-center gap-10">
-					{% for ea in ['about', 'services'] %}
-						<a class="px-10 py-4 | uppercase text-gray-700 font-bold no-underline bg-white rounded shadow | hover:text-purple-500" href="/{{ ea }}">{{ ea }}</a>
-					{% endfor %}
-				</nav>
-			</div>
+		<div class="justify-evenly full-bleed bg-gray-800 bg-opacity-50" style="justify-content: space-evenly; align-items: stretch;">
+			<img src="/img/logo/light-alpha.png" alt="logo light alpha-background" class="md:max-w-screen-md mx-auto">
+			<nav class="py-5 | flex justify-center gap-10 flex-col sm:flex-row">
+				{% for ea in ['about', 'services'] %}
+					<a class="px-10 py-4 max-w-sm mx-auto sm:m-0 | uppercase text-gray-700 font-bold no-underline bg-white rounded shadow | hover:text-purple-500" href="/{{ ea }}">{{ ea }}</a>
+				{% endfor %}
+			</nav>
 		</div>
 	</header>
 	<main>
