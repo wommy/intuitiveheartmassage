@@ -5,8 +5,13 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
 	<!-- <link href="//unpkg.com/normalize.css@^8/normalize.css" rel="stylesheet" /> -->
-	<!-- <link rel="stylesheet" href="/style/reset.css"> -->
-	<link rel="stylesheet" href="https://unpkg.com/modern-css-reset/dist/reset.min.css" />
+	<link rel="stylesheet" href="/style/reset.css">
+	<!-- <link rel="stylesheet" href="https://unpkg.com/modern-css-reset/dist/reset.min.css" /> -->
+	<link href="https://cdn.skypack.dev/sanitize.css" rel="stylesheet" />
+	<link href="https://unpkg.com/sanitize.css/forms.css" rel="stylesheet" />
+	<link href="https://unpkg.com/sanitize.css/assets.css" rel="stylesheet" />
+	<link href="https://unpkg.com/sanitize.css/typography.css" rel="stylesheet" />
+
 	<link href="//unpkg.com/tailwindcss@^2/dist/components.min.css" rel="stylesheet" />
 	<link href="//unpkg.com/tailwindcss@^2/dist/utilities.min.css" rel="stylesheet" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -63,104 +68,109 @@
   height: 100%;
   object-fit: cover;
 }
+
+input, select, textarea {
+	display: block;
+}
+		input::placeholder {
+			text-align: right;
+		}
 	</style>
 </head>
-<body class="container mx-auto">
-	<header class="bg-black full-bleed w-screen h-screen frame backdrop-filter backdrop-opacity-80">
-		<img src="/img/clouds.jpg" alt="clouds">
-		<div class="justify-evenly full-bleed bg-gray-800 bg-opacity-50" style="justify-content: space-evenly; align-items: stretch;">
-			<img src="/img/logo/light-alpha.png" alt="logo light alpha-background" class="md:max-w-screen-md mx-auto">
-			<nav class="py-5 | flex justify-center gap-10 flex-col sm:flex-row">
-				{% for ea in ['about', 'services'] %}
-					<a class="px-10 py-4 max-w-sm mx-auto sm:m-0 | uppercase text-gray-700 font-bold no-underline bg-white rounded shadow | hover:text-purple-500" href="/{{ ea }}">{{ ea }}</a>
-				{% endfor %}
+<body>
+
+	<main class="container mx-auto">
+
+		<header class="bg-black full-bleed w-screen h-screen frame backdrop-filter backdrop-opacity-80">
+			<img src="/img/clouds.jpg" alt="clouds">
+			<div class="justify-evenly full-bleed bg-gray-800 bg-opacity-50" style="justify-content: space-evenly; align-items: stretch;">
+				<img src="/img/logo/light-alpha.png" alt="logo light alpha-background" class="md:max-w-screen-md mx-auto">
+				<nav class="py-5 | flex justify-center gap-10 flex-col sm:flex-row">
+					{% for ea in ['about', 'services'] %}
+						<a class="px-10 py-4 max-w-sm mx-auto sm:m-0 | uppercase text-gray-700 font-bold no-underline bg-white rounded shadow | hover:text-purple-500" href="#{{ ea }}">{{ ea }}</a>
+					{% endfor %}
+				</nav>
+			</div>
+		</header>
+
+		<section class="py-24">
+			<h2 class="text-center text-4xl mb-8" id="services">services</h2>
+			<nav class="flex flex-col sm:flex-row gap-5 max-w-screen-lg mx-auto">
+				<a href="/services/inhome" class="flex-1 frame2">
+					<img src="/img/hand-yoga-healing.jpg" alt="hands yoga healing">
+					<span class="text-white no-underline text-5xl">In-Home</span>
+				</a>
+				<a href="/services/studio" class="flex-1 frame2">
+					<img src="/img/hands-head.jpeg" alt="hands head">
+					<span class="text-white no-underline text-5xl">Studio</span>
+				</a>
 			</nav>
-		</div>
-	</header>
-	<main>
-		<section class="flex gap-5 max-w-screen-lg mx-auto py-24">
-			<a href="/services/inhome" class="flex-1 frame2">
-				<img src="/img/hand-yoga-healing.jpg" alt="hands yoga healing">
-				<span class="text-white no-underline text-5xl">In-Home Service</span>
-			</a>
-			<a href="/services/studio" class="flex-1 frame2">
-				<img src="/img/hands-head.jpeg" alt="hands head">
-				<span class="text-white no-underline text-5xl">Studio Service</span>
-			</a>
 		</section>
+
 		<section class="my-10 text-center">
 			<p class="text-3xl">happiness, rejuvenation, and peace…</p>
 			<p class="text-2xl">at last</p>
 			<p>you want… no, you know you <em>need</em> this…</p>
 		</section>
-		<section class="my-10 text-center">
-			<form action="" method="post">
-				<header>
-					<p>Fill out your details below with the service that you need, date and preferred hour and we’ll get back to you to book an appointment.</p>
-					<p>rewrite this dani</p>
-				</header>
-				<div class="row">
-					<div>
-						<label for="name">Your Name *</label>
-						<input type="text" name="name" id="name" required>
-					</div>
-					<div>
-						<label for="phone">Your Phone *</label>
-						<input type="tel" name="phone" id="phone" required>
-					</div>
-				</div>
-				<div class="row">
-					<div>
-						<label for="email">Your Email *</label>
-						<input type="email" name="email" id="email" required>
-					</div>
-				</div>
-				<div class="row">
-					<div>
-						<label for="service">Select a Service</label>
-						<select name="service" id="service">
-							<option value="inHome">In-Home Service</option>
-							<option value="studio">Studio Service</option>
+
+		<section class="my-20">
+			<p class="text-center mb-4">Fill out the form below and we’ll get back to you to book an appointment.</p>
+
+			<form action="" method="post" class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+
+				<label for="name">Name
+					<input type="text" name="name" id="name" required placeholder="required">
+				</label>
+				<label for="phone">Phone
+					<input type="tel" name="phone" id="phone" required placeholder="required">
+				</label>
+				<label for="email">Email
+					<input type="email" name="email" id="email" required placeholder="required">
+				</label>
+
+				<div>
+					<label for="service">Select a Service
+						<select name="service" id="service" class="w-2/3 mx-auto">
+							<option value="inHome">In-Home</option>
+							<option value="studio">Studio</option>
 						</select>
-					</div>
-					<div>
-						<label for="date">Select a Date</label>
-						<input type="date" name="date" id="date">
-					</div>
+					</label>
+					<label for="date">Select a Date
+						<input type="date" name="date" id="date" class="w-2/3 mx-auto">
+					</label>
+					<label for="time">Select Time
+						<input type="time" name="time" id="time" class="w-2/3 mx-auto">
+					</label>
 				</div>
-				<div class="row">
-					<div>
-						<label for="time">Select Time</label>
-						<input type="time" name="time" id="time">
-					</div>
-					<div>
-						<label for="note">Additional Note</label>
-						<input type="text" name="note" id="note">
-					</div>
-				</div>
-				<input type="submit" value="request zen">
+
+				<label for="note" class="col-span-2">Additional Notes
+					<textarea name="note" id="note" class="w-full" rows=7></textarea>
+				</label>
+
+				<input type="submit" value="request zen" class="col-start-2 uppercase text-white bg-black text-center hover:text-purple-500">
 			</form>
 		</section>
+
+		<footer class="text-center">
+			<hr>
+			<div>
+				<span>follow us:</span>
+				<i class="fa fa-facebook-f"></i>
+				<i class="fa fa-instagram"></i>
+				<i class="fa fa-youtube-play"></i>
+			</div>
+			<div>
+				<a href="tel:2487100126">248-710-0126</a>
+				<span> | </span>
+				<a href="mailto:daniellesintuitiveheart@gmail.com">daniellesintuitiveheart@gmail.com</a>
+			</div>
+			<div>
+				<a href="//goo.gl/maps/sjFhXZCtb7K2yvJ8A">
+					<address>3311 Twelve Mile Rd. Berkley, MI 48072</address>
+				</a>
+			</div>
+		</footer>
 	</main>
-	<footer class="text-center">
-		<hr>
-		<div>
-			<span>follow us:</span>
-			<i class="fa fa-facebook-f"></i>
-			<i class="fa fa-instagram"></i>
-			<i class="fa fa-youtube-play"></i>
-		</div>
-		<div>
-			<a href="tel:2487100126">248-710-0126</a>
-			<span> | </span>
-			<a href="mailto:daniellesintuitiveheart@gmail.com">daniellesintuitiveheart@gmail.com</a>
-		</div>
-		<div>
-			<a href="//goo.gl/maps/sjFhXZCtb7K2yvJ8A">
-				<address>3311 Twelve Mile Rd. Berkley, MI 48072</address>
-			</a>
-		</div>
-	</footer>
 </body>
 </html>
 
